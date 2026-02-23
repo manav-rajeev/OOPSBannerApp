@@ -1,22 +1,20 @@
 public class OOPSBannerApp {
 
-    // Main method to run the banner display
     public static void main(String[] args) {
 
-        // Create String array for 7 banner lines
-        String[] lines = new String[7];
+        // Inline array initialization using String.join()
+        String[] lines = {
 
-        // Populate each line using String.join()
+                String.join(" ", " *** ", " *** ", " ***** ", " ***** "),
+                String.join(" ", "*   *", "*   *", "*     * ", "*     "),
+                String.join(" ", "*   *", "*   *", "*     * ", "*     "),
+                String.join(" ", "*   *", "*   *", " ***** ", " ***** "),
+                String.join(" ", "*   *", "*   *", "*      ", "     *"),
+                String.join(" ", "*   *", "*   *", "*      ", "     *"),
+                String.join(" ", " *** ", " *** ", "*      ", " ***** ")
+        };
 
-        lines[0] = String.join(" ", " *** ", " *** ", " ***** ", " ***** ");
-        lines[1] = String.join(" ", "*   *", "*   *", "*   * ", "*     ");
-        lines[2] = String.join(" ", "*   *", "*   *", "*   * ", "*     ");
-        lines[3] = String.join(" ", "*   *", "*   *", " ***** ", " ***** ");
-        lines[4] = String.join(" ", "*   *", "*   *", "*      ", "     *");
-        lines[5] = String.join(" ", "*   *", "*   *", "*      ", "     *");
-        lines[6] = String.join(" ", " *** ", " *** ", "*      ", " ***** ");
-
-        // Enhanced for-loop to print each line
+        // Enhanced for-loop to print banner
         for (String line : lines) {
             System.out.println(line);
         }
