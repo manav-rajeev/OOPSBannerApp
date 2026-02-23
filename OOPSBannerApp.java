@@ -1,54 +1,23 @@
 public class OOPSBannerApp {
 
+    // Main method to run the banner display
     public static void main(String[] args) {
 
-        System.out.println("OOPS");
-        System.out.println();
+        // Create String array for 7 banner lines
+        String[] lines = new String[7];
 
-        printBanner();
-    }
+        // Populate each line using String.join()
 
-    public static void printBanner() {
+        lines[0] = String.join(" ", " *** ", " *** ", " ***** ", " ***** ");
+        lines[1] = String.join(" ", "*   *", "*   *", "*   * ", "*     ");
+        lines[2] = String.join(" ", "*   *", "*   *", "*   * ", "*     ");
+        lines[3] = String.join(" ", "*   *", "*   *", " ***** ", " ***** ");
+        lines[4] = String.join(" ", "*   *", "*   *", "*      ", "     *");
+        lines[5] = String.join(" ", "*   *", "*   *", "*      ", "     *");
+        lines[6] = String.join(" ", " *** ", " *** ", "*      ", " ***** ");
 
-        String[][] O = {
-                {" ", "*****", " "},
-                {"*", "     ", "*"},
-                {"*", "     ", "*"},
-                {"*", "     ", "*"},
-                {"*", "     ", "*"},
-                {"*", "     ", "*"},
-                {" ", "*****", " "}
-        };
-
-        String[][] P = {
-                {" ", "*****", " "},
-                {"*", "     ", "*"},
-                {"*", "     ", "*"},
-                {" ", "*****", " "},
-                {"*", "      ", " "},
-                {"*", "      ", " "},
-                {"*", "      ", " "}
-        };
-
-        String[][] S = {
-                {" ", "*****", " "},
-                {"*", "      ", " "},
-                {"*", "      ", " "},
-                {" ", "*****", " "},
-                {" ", "      ", "*"},
-                {" ", "      ", "*"},
-                {" ", "*****", " "}
-        };
-
-        for (int i = 0; i < 7; i++) {
-
-            String line = String.join(" ",
-                    String.join(" ", O[i]),
-                    String.join(" ", O[i]),
-                    String.join(" ", P[i]),
-                    String.join(" ", S[i])
-            );
-
+        // Enhanced for-loop to print each line
+        for (String line : lines) {
             System.out.println(line);
         }
     }
