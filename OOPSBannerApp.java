@@ -1,29 +1,45 @@
 public class OOPSBannerApp {
 
-    public static void main(String[] args) {
+    /**
+     * Inner Static Class to encapsulate Character and its Pattern
+     */
+    public static class CharacterPatternMap {
 
-        String[] O = getOPattern();
-        String[] P = getPPattern();
-        String[] S = getSPattern();
+        private final char character;
+        private final String[] pattern;
 
-        // Build banner using returned patterns
-        String[] banner = new String[7];
-
-        for (int i = 0; i < 7; i++) {
-            banner[i] = String.join(" ",
-                    O[i], O[i], P[i], S[i]
-            );
+        /**
+         * Constructor to initialize character and pattern
+         * @param character banner character
+         * @param pattern 7-line pattern of the character
+         */
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
         }
 
-        // Print banner
-        for (String line : banner) {
-            System.out.println(line);
+        /**
+         * Getter for character
+         * @return character
+         */
+        public char getCharacter() {
+            return character;
+        }
+
+        /**
+         * Getter for pattern
+         * @return 7-line pattern array
+         */
+        public String[] getPattern() {
+            return pattern;
         }
     }
 
-    // Static helper method for letter O
-    public static String[] getOPattern() {
-        return new String[] {
+    /**
+     * Utility method to create O pattern
+     */
+    public static CharacterPatternMap createOPattern() {
+        return new CharacterPatternMap('O', new String[]{
                 " *** ",
                 "*   *",
                 "*   *",
@@ -31,12 +47,14 @@ public class OOPSBannerApp {
                 "*   *",
                 "*   *",
                 " *** "
-        };
+        });
     }
 
-    // Static helper method for letter P
-    public static String[] getPPattern() {
-        return new String[] {
+    /**
+     * Utility method to create P pattern
+     */
+    public static CharacterPatternMap createPPattern() {
+        return new CharacterPatternMap('P', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -44,12 +62,14 @@ public class OOPSBannerApp {
                 "*      ",
                 "*      ",
                 "*      "
-        };
+        });
     }
 
-    // Static helper method for letter S
-    public static String[] getSPattern() {
-        return new String[] {
+    /**
+     * Utility method to create S pattern
+     */
+    public static CharacterPatternMap createSPattern() {
+        return new CharacterPatternMap('S', new String[]{
                 " ***** ",
                 "*      ",
                 "*      ",
@@ -57,6 +77,32 @@ public class OOPSBannerApp {
                 "      *",
                 "      *",
                 " ***** "
+        });
+    }
+
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+
+        // Create array of CharacterPatternMap objects
+        CharacterPatternMap[] characters = {
+                createOPattern(),
+                createOPattern(),
+                createPPattern(),
+                createSPattern()
         };
+
+        // Build banner using StringBuilder
+        for (int row = 0; row < 7; row++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (CharacterPatternMap cp : characters) {
+                line.append(cp.getPattern()[row]).append("  ");
+            }
+
+            System.out.println(line);
+        }
     }
 }
